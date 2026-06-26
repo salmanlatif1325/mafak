@@ -123,8 +123,8 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Head Office</h4>
                     <p className="text-muted-foreground">
-                      131-B, Lahore Canal Bank Cooperative Society,<br />
-                      1.5KM Thoker Niaz Baig, Canal Road Lahore
+                      008 Ground Floor, Capital Techonology Park,<br />
+                      Park Rd. Islamabad.
                     </p>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                    <p className="text-muted-foreground">+92 304 4487878</p>
+                    <p className="text-muted-foreground">+92 300 8412103</p>
                   </div>
                 </div>
 

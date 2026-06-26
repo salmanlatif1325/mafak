@@ -18,8 +18,9 @@ export default function middleware(request: Request) {
 
   if (BLOCKED_COUNTRIES.has(country)) {
     return new Response(BLOCK_PAGE_HTML, {
-      // 451 = "Unavailable For Legal Reasons" — the correct status for geo-blocks.
-      status: 451,
+      // 503 reads as a generic "service unavailable" so the block looks like a
+      // routine server error rather than a regional restriction.
+      status: 503,
       headers: {
         "content-type": "text/html; charset=utf-8",
         // Don't let CDNs/browsers cache the block across regions.
@@ -37,7 +38,7 @@ const BLOCK_PAGE_HTML = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Not available in your region</title>
+    <title>Something went wrong</title>
     <style>
       :root { color-scheme: light dark; }
       body {
@@ -58,8 +59,8 @@ const BLOCK_PAGE_HTML = `<!doctype html>
   </head>
   <body>
     <div class="card">
-      <h1>This site isn't available in your region</h1>
-      <p>We're sorry, but access to this website is currently restricted in your location.</p>
+      <h1>Something went wrong</h1>
+      <p>We're having trouble loading this page right now. Please try again later.</p>
     </div>
   </body>
 </html>`;
